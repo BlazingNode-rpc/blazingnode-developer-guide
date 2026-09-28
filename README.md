@@ -54,8 +54,7 @@ Full benchmark source code: [BlazingNode-rpc/benchmark-cli](https://github.com/B
 
 BlazingNode does not log private transaction payloads or frontrun user transactions. Dedicated bare-metal instances offer isolated compute and memory with no noisy neighbors.
 
-For security reports: `security@blazingnode.com`  
-For technical support & onboarding: `daniel@blazingnode.com`
+For technical support & inquiries: `support@blazingnode.com` (or `daniel@blazingnode.com`)
 
 ---
 
