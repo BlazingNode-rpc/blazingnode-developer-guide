@@ -70,5 +70,5 @@ main().catch(console.error);
 ## 3. Run the Example
 
 ```bash
-BLAZINGNODE_RPC="https://polygon.blazingnode.com/YOUR_KEY" npx tsx client.ts
+BLAZINGNODE_API_KEY="YOUR_KEY" npx tsx client.ts
 ```
