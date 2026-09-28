@@ -10,7 +10,7 @@
 **A:** Yes, BlazingNode provides full historical state access for Polygon PoS. You can execute `eth_call` and `eth_getLogs` at any historical block height without missing-trie errors.
 
 ### Q: Do you support debug_traceTransaction or trace_block?
-**A:** Yes, high-performance tracing methods are supported on dedicated instances for MEV searchers and analytical indexers. Contact `engineering@blazingnode.com` for custom tracing requirements.
+**A:** Yes, high-performance tracing methods are supported on dedicated instances for MEV searchers and analytical indexers. Contact `daniel@blazingnode.com` for custom tracing requirements.
 
 ### Q: What is the recommended fallback strategy?
 **A:** In mission-critical trading, never rely on a single provider. We recommend placing BlazingNode as your primary high-speed tier, with an automatic fallback client configured to route traffic to a secondary provider if network anomalies occur. See our [Viem Fallback Example](../examples/viem/README.md).
