@@ -15,7 +15,7 @@
 | :--- | :--- |
 | [**Getting Started**](docs/getting-started.md) | How to authenticate with x-api-key, format URLs, and make your first call. |
 | [**Endpoints & Networks**](docs/endpoints.md) | Mainnet connection strings (HTTP and WSS) with PoP details. |
-| [**Migration Guide**](docs/migration-alchemy-quicknode.md) | Drop-in URL swap instructions in 2 minutes. |
+| [**Migration Guide**](docs/migration-guide.md) | Drop-in URL swap instructions in 2 minutes. |
 | [**Rate Limits & Burst Handling**](docs/rate-limits-and-burst.md) | Why bare-metal nodes prevent HTTP 429 errors and reduce P95 tail latency spikes. |
 | [**FAQ & Support**](docs/faq.md) | Archive access, debug_trace support, fallback strategy, and support contacts. |
 

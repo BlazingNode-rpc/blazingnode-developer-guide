@@ -53,12 +53,9 @@ const ws = new WebSocket('wss://rpc.blazingnode.com/ws', {
 
 ---
 
-## 3. Why High-Throughput Bots Migrate to BlazingNode
+## 3. Architecture Benefits for High-Throughput Bots
 
-| Feature | Virtualized / Shared RPCs (Alchemy, QuickNode) | BlazingNode Dedicated Bare-Metal |
-| :--- | :--- | :--- |
-| **Infrastructure** | Multi-tenant cloud hypervisors (AWS/GCP) | Dedicated physical hardware (NVMe + high-clock CPUs) |
-| **Burst Capacity** | Frequent HTTP 429 throttling on sudden traffic spikes | Sustained 100+ RPS without drops |
-| **P95 / P99 Tail Latency** | High variance due to "noisy neighbors" on shared VM pools | Flat, predictable sub-30ms latency |
-| **Stale Block Head** | Cached responses occasionally lag behind tip | True live head direct from Bor/Heimdall |
-| **Pricing Predictability** | Variable compute units (CUs) that explode during volatility | Predictable flat-rate dedicated packages |
+- **Dedicated Physical Hardware:** Enterprise NVMe drives and dedicated CPU cores ensure zero contention from noisy neighbors.
+- **Sustained Concurrency:** Run 100+ concurrent connections without arbitrary socket resets.
+- **Predictable Tail Latency:** Sub-30ms P50 latency with flat, predictable P95 distributions under peak market volume.
+- **Clean Head Tracking:** Direct Bor client reads with zero stale-block caching.

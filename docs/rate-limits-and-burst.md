@@ -13,14 +13,14 @@ BlazingNode does not run on overloaded multi-tenant virtual machines. Our nodes 
 - High single-thread clock speeds (ideal for Bor's EVM execution engine).
 - Dedicated gigabit network pipelines directly peered with Tier-1 IP transit.
 
-### Comparison Table
+### Concurrency & Capacity Overview
 
-| Metric | Typical Shared Tier | BlazingNode High-Throughput |
+| Parameter | Standard Shared Tiers | BlazingNode Dedicated Bare-Metal |
 | :--- | :--- | :--- |
-| **Max Concurrent Sockets** | 5 – 10 sockets | 100+ concurrent connections |
-| **Burst Ceiling** | 25 – 40 RPS | 100 – 250+ RPS sustained |
-| **HTTP 429 Throttle Strategy** | Instant hard cutoff | Generous burst buffers |
-| **Socket Drop / Reset** | Frequent on high volume | Zero artificial connection resets |
+| **Concurrent Connections** | 5 – 10 sockets | High concurrent socket allocations per plan |
+| **Burst Headroom** | 25 – 40 RPS | 300 RPS burst headroom on all paid plans |
+| **Rate Limit Behavior** | Artificial 429 throttling on spikes | Sustained throughput without artificial drops |
+| **Hardware Isolation** | Multi-tenant shared virtual machines | Dedicated bare-metal physical NVMe hardware |
 
 ---
 
