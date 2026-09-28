@@ -6,7 +6,7 @@
 [![Polygon PoS](https://img.shields.io/badge/Polygon-Mainnet%20(137)-8247E5.svg)](https://polygon.technology/)
 [![Polygon Amoy](https://img.shields.io/badge/Polygon-Amoy%20(80002)-blue.svg)](https://amoy.polygonscan.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Benchmark Tool](https://img.shields.io/badge/Benchmark-blazing--bench-orange.svg)](https://github.com/BlazingNode-rpc/benchmark-cli)
+[![Benchmark Tool](https://img.shields.io/badge/Benchmark-blazingnode--bench-orange.svg)](https://github.com/BlazingNode-rpc/benchmark-cli)
 
 ---
 
@@ -14,7 +14,7 @@
 
 > **Claim a Free 72-Hour Burst Pass (+100 RPS) or 20M Volume Pack on BlazingNode!**  
 > Benchmark your current RPC against BlazingNode, generate a report, and submit it:
-> - **CLI Benchmark Tool:** Run `npx blazing-bench --target <YOUR_CURRENT_RPC>`
+> - **CLI Benchmark Tool:** Run `npx blazingnode-bench --target <YOUR_CURRENT_RPC>`
 > - **Submit Report:** [https://blazingnode.com/benchmark-submit](https://blazingnode.com/benchmark-submit) or email `engineering@blazingnode.com`
 
 ---
@@ -49,7 +49,7 @@ Compare your existing RPC provider directly against BlazingNode across three cru
 
 ```bash
 # Run instantly with zero install
-npx blazing-bench --target "https://polygon-mainnet.g.alchemy.com/v2/YOUR_KEY"
+npx blazingnode-bench --target "https://polygon-mainnet.g.alchemy.com/v2/YOUR_KEY"
 ```
 
 1. **P95 Tail Latency:** Concurrency pools of 10 and 20 parallel calls.
