@@ -16,20 +16,22 @@ BlazingNode operates dedicated bare-metal nodes connected directly to high-capac
 ---
 
 ## Connection Endpoints
-
+ 
 ### 1. Polygon Mainnet (Chain ID 137)
 
 #### HTTPS Endpoint
 ```text
-https://polygon.blazingnode.com/{API_KEY}
+https://rpc.blazingnode.com
 ```
+- **Header:** `x-api-key: YOUR_API_KEY`
 - **Protocols:** HTTP/1.1, HTTP/2, HTTP/3 (QUIC)
 - **Supported Methods:** Full Ethereum JSON-RPC spec (`eth_*`, `net_*`, `web3_*`, Bor-specific tracing).
 
 #### WebSocket (WSS) Endpoint
 ```text
-wss://polygon.blazingnode.com/ws/{API_KEY}
+wss://rpc.blazingnode.com/ws
 ```
+- **Handshake Header:** `x-api-key: YOUR_API_KEY` (or query param `?key=YOUR_API_KEY`)
 - **Heartbeat:** Built-in ping/pong frames every 30 seconds.
 - **Subscriptions Supported:** `eth_subscribe` (`newHeads`, `logs`, `newPendingTransactions`).
 

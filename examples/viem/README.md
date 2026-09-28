@@ -19,15 +19,20 @@ npm install -D typescript @types/node tsx
 import { createPublicClient, http, fallback } from 'viem';
 import { polygon } from 'viem/chains';
 
-const BLAZINGNODE_RPC = process.env.BLAZINGNODE_RPC || 'https://polygon.blazingnode.com/YOUR_API_KEY';
+const BLAZINGNODE_KEY = process.env.BLAZINGNODE_API_KEY || 'YOUR_API_KEY';
 const BACKUP_RPC = process.env.BACKUP_RPC || 'https://polygon-bor-rpc.publicnode.com';
 
 // Configure high-performance client with batching and failover
 export const client = createPublicClient({
   chain: polygon,
   transport: fallback([
-    // Primary Tier: BlazingNode bare-metal with keep-alive batching
-    http(BLAZINGNODE_RPC, {
+    // Primary Tier: BlazingNode bare-metal with keep-alive batching & x-api-key
+    http('https://rpc.blazingnode.com', {
+      fetchOptions: {
+        headers: {
+          'x-api-key': BLAZINGNODE_KEY,
+        },
+      },
       batch: {
         batchSize: 50,
         wait: 10, // Wait 10ms to aggregate calls into single HTTP roundtrip

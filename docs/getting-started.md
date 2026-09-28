@@ -6,27 +6,24 @@ Welcome to the **BlazingNode Developer Guide**. BlazingNode delivers enterprise-
 
 ## 1. Authentication & API Key Model
 
-Every request to BlazingNode requires your dedicated authentication key. BlazingNode supports both URL-embedded keys and HTTP header-based authentication.
+Every request to BlazingNode requires your dedicated authentication key passed via standard HTTP header.
 
-### Option A: URL Path Authentication (Recommended for standard libraries)
-```text
-https://polygon.blazingnode.com/YOUR_API_KEY
-```
+### HTTPS Authentication
+- **Endpoint:** `https://rpc.blazingnode.com`
+- **Header:** `x-api-key: YOUR_API_KEY`
 
-### Option B: WebSocket Path Authentication
-```text
-wss://polygon.blazingnode.com/ws/YOUR_API_KEY
-```
-
-### Option C: Header Authentication (Recommended for custom proxies)
 ```http
 POST / HTTP/1.1
-Host: polygon.blazingnode.com
+Host: rpc.blazingnode.com
 Content-Type: application/json
 x-api-key: YOUR_API_KEY
 
 {"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}
 ```
+
+### WebSocket (WSS) Authentication
+- **Endpoint:** `wss://rpc.blazingnode.com/ws`
+- **Handshake Header:** `x-api-key: YOUR_API_KEY` (or query param `?key=YOUR_API_KEY`)
 
 ---
 
@@ -35,8 +32,9 @@ x-api-key: YOUR_API_KEY
 Test your connection from your local terminal or VPS server:
 
 ```bash
-curl -X POST https://polygon.blazingnode.com/YOUR_API_KEY \
+curl -X POST https://rpc.blazingnode.com \
   -H "Content-Type: application/json" \
+  -H "x-api-key: YOUR_API_KEY" \
   -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
 ```
 
