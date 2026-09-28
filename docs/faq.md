@@ -19,7 +19,6 @@
 
 ## Technical Support
 
-- **Email:** `engineering@blazingnode.com`
+- **Email:** `daniel@blazingnode.com`
 - **Website:** [blazingnode.com](https://blazingnode.com)
-- **Claim Developer Pass:** [blazingnode.com/benchmark-submit](https://blazingnode.com/benchmark-submit)
 - **GitHub Issues:** [BlazingNode-rpc/blazingnode-developer-guide/issues](https://github.com/BlazingNode-rpc/blazingnode-developer-guide/issues)

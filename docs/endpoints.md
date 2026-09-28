@@ -37,11 +37,6 @@ wss://rpc.blazingnode.com/ws
 
 ---
 
-## Geographic PoPs & Routing
+## Infrastructure & Deployment
 
-BlazingNode nodes are deployed on dedicated bare-metal servers strategically positioned near major crypto liquidity hubs:
-
-- **North America East:** Beauharnois / Montreal (BHS) & Ashburn (IAD)
-- **Europe:** Frankfurt (FRA) & London (LDN)
-
-All inbound DNS requests use geo-anycast latency routing to automatically connect your server or bot to the closest physical bare-metal instance.
+BlazingNode nodes are deployed on dedicated bare-metal servers in our high-capacity Northeast cluster.
