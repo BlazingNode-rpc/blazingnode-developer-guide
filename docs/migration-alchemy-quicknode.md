@@ -1,47 +1,54 @@
-# Migrating from Alchemy, QuickNode, or Infura in 2 Minutes
+## 1. Switching HTTP Endpoints
 
-Switching to BlazingNode is a **drop-in URL swap**. Because BlazingNode strictly adheres to standard Ethereum & Polygon JSON-RPC specifications, **no code rewrites or SDK changes are required**.
-
----
-
-## 1. Alchemy Migration
-
-### URL Pattern Comparison
-- **Alchemy:** `https://polygon-mainnet.g.alchemy.com/v2/YOUR_ALCHEMY_KEY`
-- **BlazingNode:** `https://polygon.blazingnode.com/YOUR_BLAZING_KEY`
+### Endpoint Pattern
+- **Previous Provider:** `https://your-provider.com/v2/YOUR_KEY`
+- **BlazingNode:** `https://rpc.blazingnode.com` (pass `x-api-key: YOUR_KEY` in header)
 
 ### Viem Example
-```diff
-- const rpcUrl = "https://polygon-mainnet.g.alchemy.com/v2/" + process.env.ALCHEMY_API_KEY;
-+ const rpcUrl = "https://polygon.blazingnode.com/" + process.env.BLAZINGNODE_API_KEY;
+```typescript
+import { createPublicClient, http } from 'viem';
+import { polygon } from 'viem/chains';
 
-  export const client = createPublicClient({
-    chain: polygon,
-    transport: http(rpcUrl),
-  });
+export const client = createPublicClient({
+  chain: polygon,
+  transport: http('https://rpc.blazingnode.com', {
+    fetchOptions: {
+      headers: {
+        'x-api-key': process.env.BLAZINGNODE_API_KEY!,
+      },
+    },
+  }),
+});
 ```
 
 ### Ethers.js v6 Example
-```diff
-- const provider = new ethers.JsonRpcProvider("https://polygon-mainnet.g.alchemy.com/v2/" + process.env.ALCHEMY_API_KEY);
-+ const provider = new ethers.JsonRpcProvider("https://polygon.blazingnode.com/" + process.env.BLAZINGNODE_API_KEY);
+```javascript
+import { ethers } from 'ethers';
+
+const network = ethers.Network.from(137);
+const fetchReq = new ethers.FetchRequest('https://rpc.blazingnode.com');
+fetchReq.setHeader('x-api-key', process.env.BLAZINGNODE_API_KEY);
+
+export const provider = new ethers.JsonRpcProvider(fetchReq, network, {
+  staticNetwork: network,
+});
 ```
 
 ---
 
-## 2. QuickNode Migration
+## 2. Switching WebSocket (WSS) Endpoints
 
-### URL Pattern Comparison
-- **QuickNode:** `https://your-endpoint.matic.quiknode.pro/YOUR_TOKEN/`
-- **BlazingNode:** `https://polygon.blazingnode.com/YOUR_BLAZING_KEY`
+- **Previous WSS:** `wss://your-provider.com/ws/YOUR_KEY`
+- **BlazingNode WSS:** `wss://rpc.blazingnode.com/ws` (pass `x-api-key: YOUR_KEY` or `?key=YOUR_KEY`)
 
-### WebSocket Migration
-- **QuickNode WSS:** `wss://your-endpoint.matic.quiknode.pro/YOUR_TOKEN/`
-- **BlazingNode WSS:** `wss://polygon.blazingnode.com/ws/YOUR_BLAZING_KEY`
+```javascript
+import WebSocket from 'ws';
 
-```diff
-- const wsUrl = "wss://your-endpoint.matic.quiknode.pro/" + process.env.QUICKNODE_TOKEN;
-+ const wsUrl = "wss://polygon.blazingnode.com/ws/" + process.env.BLAZINGNODE_API_KEY;
+const ws = new WebSocket('wss://rpc.blazingnode.com/ws', {
+  headers: {
+    'x-api-key': process.env.BLAZINGNODE_API_KEY,
+  },
+});
 ```
 
 ---

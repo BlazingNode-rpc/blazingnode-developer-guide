@@ -21,10 +21,12 @@ from web3 import Web3
 from requests import Session
 from requests.adapters import HTTPAdapter
 
-RPC_URL = os.getenv("BLAZINGNODE_RPC", "https://polygon.blazingnode.com/YOUR_API_KEY")
+RPC_URL = "https://rpc.blazingnode.com"
+API_KEY = os.getenv("BLAZINGNODE_API_KEY", "YOUR_API_KEY")
 
-# Create a pooled session to keep TCP connections hot (reduces latency by 30-50ms)
+# Create a pooled session to keep TCP connections hot with x-api-key header
 session = Session()
+session.headers.update({"x-api-key": API_KEY})
 adapter = HTTPAdapter(pool_connections=20, pool_maxsize=50, max_retries=2)
 session.mount('https://', adapter)
 

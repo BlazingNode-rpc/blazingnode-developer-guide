@@ -17,11 +17,15 @@ npm install ethers dotenv
 ```javascript
 import { ethers } from 'ethers';
 
-const RPC_URL = process.env.BLAZINGNODE_RPC || 'https://polygon.blazingnode.com/YOUR_API_KEY';
+const RPC_URL = 'https://rpc.blazingnode.com';
+const API_KEY = process.env.BLAZINGNODE_API_KEY || 'YOUR_API_KEY';
 
-// Initialize provider with static network definition to skip extra getNetwork roundtrips
+// Initialize provider with static network definition and x-api-key header
 const network = ethers.Network.from(137); // Polygon Mainnet
-const provider = new ethers.JsonRpcProvider(RPC_URL, network, {
+const fetchReq = new ethers.FetchRequest(RPC_URL);
+fetchReq.setHeader('x-api-key', API_KEY);
+
+const provider = new ethers.JsonRpcProvider(fetchReq, network, {
   staticNetwork: network,
   batchMaxCount: 50,
 });

@@ -6,18 +6,18 @@ BlazingNode operates dedicated bare-metal nodes connected directly to high-capac
 
 ## Network Overview
 
-| Parameter | Polygon PoS Mainnet | Polygon Amoy Testnet |
-| :--- | :--- | :--- |
-| **Chain ID** | `137` (`0x89`) | `80002` (`0x13882`) |
-| **Native Currency** | POL (formerly MATIC) | POL (Testnet) |
-| **Block Time** | ~2.0 seconds | ~2.0 seconds |
-| **Consensus Clients** | Heimdall v2 + Bor | Heimdall v2 + Bor |
+| Parameter | Polygon PoS Mainnet |
+| :--- | :--- |
+| **Chain ID** | `137` (`0x89`) |
+| **Native Currency** | POL (formerly MATIC) |
+| **Block Time** | ~2.0 seconds |
+| **Consensus Clients** | Heimdall v2 + Bor |
 
 ---
 
 ## Connection Endpoints
  
-### 1. Polygon Mainnet (Chain ID 137)
+### Polygon Mainnet (Chain ID 137)
 
 #### HTTPS Endpoint
 ```text
@@ -34,20 +34,6 @@ wss://rpc.blazingnode.com/ws
 - **Handshake Header:** `x-api-key: YOUR_API_KEY` (or query param `?key=YOUR_API_KEY`)
 - **Heartbeat:** Built-in ping/pong frames every 30 seconds.
 - **Subscriptions Supported:** `eth_subscribe` (`newHeads`, `logs`, `newPendingTransactions`).
-
----
-
-### 2. Polygon Amoy Testnet (Chain ID 80002)
-
-#### HTTPS Endpoint
-```text
-https://polygon-amoy.blazingnode.com/{API_KEY}
-```
-
-#### WebSocket (WSS) Endpoint
-```text
-wss://polygon-amoy.blazingnode.com/ws/{API_KEY}
-```
 
 ---
 

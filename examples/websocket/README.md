@@ -17,11 +17,16 @@ npm install ws
 ```javascript
 import WebSocket from 'ws';
 
-const WSS_URL = process.env.BLAZINGNODE_WSS || 'wss://polygon.blazingnode.com/ws/YOUR_API_KEY';
+const WSS_URL = 'wss://rpc.blazingnode.com/ws';
+const API_KEY = process.env.BLAZINGNODE_API_KEY || 'YOUR_API_KEY';
 
 function connect() {
-  console.log(`📡 Connecting to BlazingNode WSS: ${WSS_URL}...`);
-  const ws = new WebSocket(WSS_URL);
+  console.log(`Connecting to BlazingNode WSS: ${WSS_URL}...`);
+  const ws = new WebSocket(WSS_URL, {
+    headers: {
+      'x-api-key': API_KEY,
+    },
+  });
 
   ws.on('open', () => {
     console.log('✅ WebSocket Connected. Subscribing to newHeads...');

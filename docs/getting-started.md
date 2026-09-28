@@ -66,7 +66,5 @@ Jump straight to runnable code in our [`examples/`](../examples/) directory:
 Before deploying bots to production, verify your roundtrip latency and P95 distribution using our open-source benchmark CLI:
 
 ```bash
-npx blazing-bench --target "https://polygon.blazingnode.com/YOUR_API_KEY"
+npx blazingnode-bench --target "https://your-current-rpc-provider.com/YOUR_KEY"
 ```
-
-> 🎁 **Developer Incentive:** Share your benchmark report with `engineering@blazingnode.com` to claim a **Free 72-Hour Burst Pass (+100 RPS)** or **20M Volume Pack**. Learn more at [blazingnode.com/benchmark-submit](https://blazingnode.com/benchmark-submit).

@@ -4,19 +4,8 @@
 > High-Throughput, Dedicated Bare-Metal Polygon RPC Infrastructure.
 
 [![Polygon PoS](https://img.shields.io/badge/Polygon-Mainnet%20(137)-8247E5.svg)](https://polygon.technology/)
-[![Polygon Amoy](https://img.shields.io/badge/Polygon-Amoy%20(80002)-blue.svg)](https://amoy.polygonscan.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Benchmark Tool](https://img.shields.io/badge/Benchmark-blazingnode--bench-orange.svg)](https://github.com/BlazingNode-rpc/benchmark-cli)
-
----
-
-## Benchmark Switcher Offer
-
-> **Switch to BlazingNode with Your Benchmark Report:**  
-> Run the benchmark against your current endpoint, start your evaluation, and send your report to **`daniel@blazingnode.com`**:
-> - **Bonus Capacity:** When you subscribe to any paid plan (Builder, Operator, or Pro), Daniel will credit a **bonus 20M Volume Pack** directly to your account.
-> - **Run Benchmark:** `npx blazingnode-bench --target <YOUR_CURRENT_RPC>`
-> - **Sign Up:** [https://blazingnode.com/signup](https://blazingnode.com/signup)
 
 ---
 
@@ -24,8 +13,8 @@
 
 | Guide | Description |
 | :--- | :--- |
-| [**Getting Started**](docs/getting-started.md) | How to authenticate, format URLs, pass API keys, and make your first call. |
-| [**Endpoints & Networks**](docs/endpoints.md) | Mainnet & Amoy testnet connection strings (HTTP and WSS) with PoP details. |
+| [**Getting Started**](docs/getting-started.md) | How to authenticate with x-api-key, format URLs, and make your first call. |
+| [**Endpoints & Networks**](docs/endpoints.md) | Mainnet connection strings (HTTP and WSS) with PoP details. |
 | [**Migration Guide**](docs/migration-alchemy-quicknode.md) | Drop-in URL swap instructions in 2 minutes. |
 | [**Rate Limits & Burst Handling**](docs/rate-limits-and-burst.md) | Why bare-metal nodes prevent HTTP 429 errors and reduce P95 tail latency spikes. |
 | [**FAQ & Support**](docs/faq.md) | Archive access, debug_trace support, fallback strategy, and support contacts. |
