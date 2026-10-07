@@ -1,6 +1,6 @@
 # Viem Client Integration (TypeScript)
 
-This example demonstrates how to configure a high-performance Viem public client with keep-alive HTTP connections and fallback provider support.
+This example demonstrates how to configure a high-performance Viem public client with keep-alive HTTP connections and header-based authentication.
 
 ---
 
@@ -16,31 +16,23 @@ npm install -D typescript @types/node tsx
 ## 2. Configuration (`client.ts`)
 
 ```typescript
-import { createPublicClient, http, fallback } from 'viem';
+import { createPublicClient, http } from 'viem';
 import { polygon } from 'viem/chains';
 
 const BLAZINGNODE_KEY = process.env.BLAZINGNODE_API_KEY || 'YOUR_API_KEY';
-const BACKUP_RPC = process.env.BACKUP_RPC || 'https://polygon-bor-rpc.publicnode.com';
 
-// Configure high-performance client with batching and failover
+// Configure high-performance client with keep-alive & x-api-key authentication
 export const client = createPublicClient({
   chain: polygon,
-  transport: fallback([
-    // Primary Tier: BlazingNode bare-metal with keep-alive & x-api-key
-    http('https://rpc.blazingnode.com', {
-      fetchOptions: {
-        headers: {
-          'x-api-key': BLAZINGNODE_KEY,
-        },
+  transport: http('https://rpc.blazingnode.com', {
+    fetchOptions: {
+      headers: {
+        'x-api-key': BLAZINGNODE_KEY,
       },
-      retryCount: 2,
-      retryDelay: 150,
-    }),
-    // Secondary Tier: Public fallback
-    http(BACKUP_RPC, {
-      retryCount: 1,
-    }),
-  ]),
+    },
+    retryCount: 2,
+    retryDelay: 150,
+  }),
 });
 
 async function main() {

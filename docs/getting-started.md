@@ -53,7 +53,7 @@ curl -X POST https://rpc.blazingnode.com \
 
 Jump straight to runnable code in our [`examples/`](../examples/) directory:
 
-- [**Viem (TypeScript)**](../examples/viem/README.md) - Modern, type-safe EVM client with keep-alive HTTP connections and fallback support.
+- [**Viem (TypeScript)**](../examples/viem/README.md) - Modern, type-safe EVM client with keep-alive HTTP connections and header-based authentication.
 - [**Ethers.js v6 (JavaScript/TypeScript)**](../examples/ethers/README.md) - Standard JsonRpcProvider with retry logic.
 - [**Python Web3.py**](../examples/python-web3/README.md) - Optimized Web3 connection with PoA middleware for trading bots.
 - [**WebSocket Subscriptions**](../examples/websocket/README.md) - Persistent low-latency block head (`newHeads`) and log filters.

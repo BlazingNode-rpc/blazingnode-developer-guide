@@ -16,7 +16,7 @@
 | [**Endpoints & Networks**](docs/endpoints.md) | Mainnet connection strings (HTTP and WSS) with PoP details. |
 | [**Migration Guide**](docs/migration-guide.md) | Drop-in URL swap instructions in 2 minutes. |
 | [**Rate Limits & Burst Handling**](docs/rate-limits-and-burst.md) | Why bare-metal nodes prevent HTTP 429 errors and reduce P95 tail latency spikes. |
-| [**FAQ & Support**](docs/faq.md) | Archive access, debug_trace support, fallback strategy, and support contacts. |
+| [**FAQ & Support**](docs/faq.md) | State depth, trace add-on bundles, pricing structure, and common questions. |
 
 ---
 
@@ -24,7 +24,7 @@
 
 Copy-paste working implementations optimized for low latency and high concurrency:
 
-- **[Viem Client (TypeScript)](examples/viem/README.md):** Modern public client with keep-alive HTTP connections and fallback provider support.
+- **[Viem Client (TypeScript)](examples/viem/README.md):** Modern public client with keep-alive HTTP connections and x-api-key authentication.
 - **[Ethers.js v6](examples/ethers/README.md):** Standard JsonRpcProvider with static network configuration to save roundtrips.
 - **[Python Web3.py](examples/python-web3/README.md):** Trading bot client with persistent HTTP connection pooling and PoA middleware.
 - **[WebSocket Subscriptions](examples/websocket/README.md):** Real-time newHeads and logs streaming with auto-reconnect logic.
