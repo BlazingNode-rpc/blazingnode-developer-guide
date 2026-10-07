@@ -8,9 +8,9 @@
 
 ### Q: Does BlazingNode carry full historical archive state? How many blocks are kept live?
 **A:** No, BlazingNode is engineered as an ultra-fast, high-throughput execution node for live trading, bots, indexing, and recent data verification—it is not an archive node. 
-- **Recent Trie State (`eth_call`, historical balances):** Carried live for recent active blocks (~125 blocks, approximately 4–5 minutes of state).
-- **Block & Receipt History (`eth_getBlockByNumber`, `eth_getTransactionReceipt`, `eth_getLogs`):** Retained across full recent weeks/months on disk.
-- If your workload requires querying contract storage tries or balances from months in the past, an archive node is required.
+- **Live Block & Execution History:** We keep **100,000 blocks (~2.25 days)** of live blocks, transactions, logs, and state available for immediate execution and block traces (`debug_traceBlockByNumber`, `trace_block`, etc.) with zero missing-trie errors.
+- **Historical Block & Receipt Data (`eth_getBlockByNumber`, `eth_getTransactionReceipt`):** Accessible across full recent weeks and months on high-speed disk.
+- **Deep Historical Trie State (>2.25 days):** If your workload requires running `eth_call` or storage inspections against historical contract state from weeks or months in the past, an archive node is required.
 
 ### Q: How do Trace and Debug methods work? Do they burn through my monthly budget?
 **A:** You can purchase **Trace Call Bundles** that **never expire**—they simply deplete with actual usage. This ensures a 100% predictable cost structure with no surprise overages or hidden multipliers. 
