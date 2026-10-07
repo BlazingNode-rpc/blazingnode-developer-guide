@@ -6,11 +6,12 @@
 ### Q: What is the difference between average latency and P95 tail latency?
 **A:** Average latency (mean) looks deceptively low because simple, cached queries bring down the math. However, during high-volatility events, trading bots fire concurrent bundles of state reads. **P95 latency** measures the slowest 5% of your requests—which is when your bot is most vulnerable to timeouts. BlazingNode maintains flat, predictable P95 latencies even under 20+ parallel requests.
 
-### Q: Does BlazingNode carry full historical archive state?
-**A:** BlazingNode is engineered as an ultra-fast, high-throughput execution node for live trading, bots, indexing, and high-frequency transactions.
-- **Trace & Debug Methods:** Full historical traces and debug calls (`debug_traceTransaction`, `debug_traceBlockByNumber`, `trace_block`, `trace_transaction`) are fully supported across the entire historical Polygon chain.
-- **Block & Receipt History:** Full block headers, transaction receipts, and log records (`eth_getBlockByNumber`, `eth_getTransactionReceipt`, `eth_getLogs`) are retained across recent weeks and months on high-speed disk.
-- **Historical State Queries:** For state execution methods (`eth_call`, `eth_getBalance`, `eth_getStorageAt`) targeting contract states from months or years in the past, an archive node is required. Live state execution is optimized for real-time and recent blocks.
+### Q: Does BlazingNode support historical archive queries and traces?
+**A:** Yes. BlazingNode provides full chain coverage alongside bare-metal execution speed:
+
+- **Historical Traces & Debug Calls:** Full historical trace and debug coverage from genesis to head (`debug_traceTransaction`, `trace_block`, etc.) is supported across dedicated trace infrastructure. Core plans include monthly trace grants, and non-expiring prepaid add-on packs are available if you need more.
+- **Deep Historical Archive Calls (1% Included Allowance):** For queries inspecting past block state—such as historical `eth_call`, `eth_getBalance`, `eth_getCode`, `eth_getStorageAt` (at explicit past blocks), and deep historical `eth_getLogs` / transaction lookups—every paid monthly plan includes a generous 1% allowance of your total monthly plan volume.
+- **Need higher historical volume?** Contact us at: `support@blazingnode.com` and we will tailor a dedicated deep historical archive package to fit your exact workload.
 
 ### Q: How do Trace and Debug methods work? Do they burn through my monthly budget?
 **A:** You can purchase **Trace Call Bundles** that **never expire**—they simply deplete with actual usage. This ensures a 100% predictable cost structure with no surprise overages or hidden multipliers. 
