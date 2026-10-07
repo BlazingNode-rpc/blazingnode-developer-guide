@@ -59,12 +59,3 @@ Jump straight to runnable code in our [`examples/`](../examples/) directory:
 - [**WebSocket Subscriptions**](../examples/websocket/README.md) - Persistent low-latency block head (`newHeads`) and log filters.
 - [**High-Throughput Concurrent RPC**](../examples/batch-rpc/README.md) - Parallel JSON-RPC queries leveraging 300 RPS burst headroom without socket stalls.
 
----
-
-## 4. Benchmark Your Connection
-
-Before deploying bots to production, verify your roundtrip latency and P95 distribution using our open-source benchmark CLI:
-
-```bash
-npx blazingnode-bench --target "https://your-current-rpc-provider.com/YOUR_KEY"
-```

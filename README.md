@@ -5,7 +5,6 @@
 
 [![Polygon PoS](https://img.shields.io/badge/Polygon-Mainnet%20(137)-8247E5.svg)](https://polygon.technology/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Benchmark Tool](https://img.shields.io/badge/Benchmark-blazingnode--bench-orange.svg)](https://github.com/BlazingNode-rpc/benchmark-cli)
 
 ---
 
@@ -30,23 +29,6 @@ Copy-paste working implementations optimized for low latency and high concurrenc
 - **[Python Web3.py](examples/python-web3/README.md):** Trading bot client with persistent HTTP connection pooling and PoA middleware.
 - **[WebSocket Subscriptions](examples/websocket/README.md):** Real-time newHeads and logs streaming with auto-reconnect logic.
 - **[Concurrent JSON-RPC](examples/batch-rpc/README.md):** How to dispatch parallel calls taking advantage of 300 RPS burst headroom.
-
----
-
-## Benchmark Your Current Node
-
-Compare your existing RPC provider directly against BlazingNode across three crucial vectors:
-
-```bash
-# Run instantly with zero install
-npx blazingnode-bench --target "https://your-provider-rpc-url.com/YOUR_KEY"
-```
-
-1. **P95 Tail Latency:** Concurrency pools of 10 and 20 parallel calls.
-2. **Block Head Freshness:** Detects stale block reads against the canonical Polygon head.
-3. **Burst Stress Test:** Ramps up to 300 RPS burst headroom to reveal artificial HTTP 429 throttling.
-
-Full benchmark source code: [BlazingNode-rpc/benchmark-cli](https://github.com/BlazingNode-rpc/benchmark-cli).
 
 ---
 
