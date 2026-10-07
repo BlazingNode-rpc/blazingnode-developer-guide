@@ -9,18 +9,7 @@
 ### Q: Does BlazingNode support historical archive queries and traces?
 **A:** Yes. BlazingNode provides full chain coverage alongside bare-metal execution speed:
 
-- **Historical Traces & Debug Calls:** Full historical trace and debug coverage from genesis to head is supported across dedicated trace infrastructure for all standard methods:
-  - `debug_traceTransaction`
-  - `debug_traceBlockByNumber`
-  - `debug_traceBlockByHash`
-  - `trace_block`
-  - `trace_transaction`
-  - `trace_call`
-  - `trace_filter`
-  - `trace_get`
-  - `trace_replayTransaction`
-  - `trace_replayBlockTransactions`
-  Core plans include monthly trace grants, and non-expiring prepaid add-on packs are available if you need more.
+- **Historical Traces & Debug Calls:** Full historical trace and debug coverage from genesis to head is supported across dedicated trace infrastructure for all standard methods including `debug_traceTransaction`, `debug_traceBlockByNumber`, `debug_traceBlockByHash`, `trace_block`, `trace_transaction`, `trace_call`, `trace_filter`, `trace_get`, `trace_replayTransaction`, and `trace_replayBlockTransactions`. Core plans include monthly trace grants, and non-expiring prepaid add-on packs are available if you need more: https://blazingnode.com/pricing/trace-add-ons
 - **Deep Historical Archive Calls (1% Included Allowance):** For queries inspecting past block state—such as historical `eth_call`, `eth_getBalance`, `eth_getCode`, `eth_getStorageAt` (at explicit past blocks), and deep historical `eth_getLogs` / transaction lookups—every paid monthly plan includes a generous 1% allowance of your total monthly plan volume.
 - **Need higher historical volume?** Contact us at: `support@blazingnode.com` and we will tailor a dedicated deep historical archive package to fit your exact workload.
 
