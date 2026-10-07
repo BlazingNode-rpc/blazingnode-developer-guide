@@ -27,7 +27,7 @@ fetchReq.setHeader('x-api-key', API_KEY);
 
 const provider = new ethers.JsonRpcProvider(fetchReq, network, {
   staticNetwork: network,
-  batchMaxCount: 50,
+  batchMaxCount: 1, // Direct individual calls over keep-alive HTTP pipeline
 });
 
 async function run() {

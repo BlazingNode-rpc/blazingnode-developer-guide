@@ -21,6 +21,8 @@ from web3 import Web3
 from requests import Session
 from requests.adapters import HTTPAdapter
 
+from web3.middleware import ExtraDataToPOAMiddleware
+
 RPC_URL = "https://rpc.blazingnode.com"
 API_KEY = os.getenv("BLAZINGNODE_API_KEY", "YOUR_API_KEY")
 
@@ -31,6 +33,8 @@ adapter = HTTPAdapter(pool_connections=20, pool_maxsize=50, max_retries=2)
 session.mount('https://', adapter)
 
 w3 = Web3(Web3.HTTPProvider(RPC_URL, session=session))
+# Required for Polygon PoS extraData validation
+w3.middleware_onion.inject(ExtraDataToPOAMiddleware, layer=0)
 
 def test_throughput():
     if not w3.is_connected():

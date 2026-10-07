@@ -1,6 +1,6 @@
 # Viem Client Integration (TypeScript)
 
-This example demonstrates how to configure a high-performance Viem public client with automatic JSON-RPC batching and fallback provider support.
+This example demonstrates how to configure a high-performance Viem public client with keep-alive HTTP connections and fallback provider support.
 
 ---
 
@@ -26,16 +26,12 @@ const BACKUP_RPC = process.env.BACKUP_RPC || 'https://polygon-bor-rpc.publicnode
 export const client = createPublicClient({
   chain: polygon,
   transport: fallback([
-    // Primary Tier: BlazingNode bare-metal with keep-alive batching & x-api-key
+    // Primary Tier: BlazingNode bare-metal with keep-alive & x-api-key
     http('https://rpc.blazingnode.com', {
       fetchOptions: {
         headers: {
           'x-api-key': BLAZINGNODE_KEY,
         },
-      },
-      batch: {
-        batchSize: 50,
-        wait: 10, // Wait 10ms to aggregate calls into single HTTP roundtrip
       },
       retryCount: 2,
       retryDelay: 150,

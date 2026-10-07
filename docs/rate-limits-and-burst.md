@@ -18,7 +18,7 @@ BlazingNode does not run on overloaded multi-tenant virtual machines. Our nodes 
 | Parameter | Standard Shared Tiers | BlazingNode Dedicated Bare-Metal |
 | :--- | :--- | :--- |
 | **Concurrent Connections** | 5 – 10 sockets | High concurrent socket allocations per plan |
-| **Burst Headroom** | 25 – 40 RPS | 300 RPS burst headroom on all paid plans |
+| **Burst Headroom** | 25 – 40 RPS | 300 RPS burst headroom on all plans |
 | **Rate Limit Behavior** | Artificial 429 throttling on spikes | Sustained throughput without artificial drops |
 | **Hardware Isolation** | Multi-tenant shared virtual machines | Dedicated bare-metal physical NVMe hardware |
 
@@ -28,7 +28,7 @@ BlazingNode does not run on overloaded multi-tenant virtual machines. Our nodes 
 
 1. **Enable HTTP Keep-Alive:**
    Re-using TLS connections reduces latency by 20–50ms per call. Always pass a persistent `http.Agent` in Node.js or `requests.Session` in Python.
-2. **Utilize JSON-RPC Batching:**
-   Combine 10–50 calls (`eth_getBalance`, `eth_call`) into a single HTTP POST request to minimize TCP roundtrip overhead. See [High-Throughput Batching Example](../examples/batch-rpc/README.md).
+2. **Leverage Concurrent Parallel Pipelines:**
+   Dispatch parallel async calls (`eth_getBalance`, `eth_call`) concurrently over persistent HTTP keep-alive connections to take full advantage of BlazingNode's 300 RPS burst headroom. See [High-Throughput Concurrent Example](../examples/batch-rpc/README.md).
 3. **Use WebSockets for Event Monitoring:**
    Instead of polling `eth_blockNumber` every 500ms, subscribe to `eth_subscribe("newHeads")` over WSS.

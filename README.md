@@ -25,11 +25,11 @@
 
 Copy-paste working implementations optimized for low latency and high concurrency:
 
-- **[Viem Client (TypeScript)](examples/viem/README.md):** Modern public client with automatic batching and fallback provider support.
+- **[Viem Client (TypeScript)](examples/viem/README.md):** Modern public client with keep-alive HTTP connections and fallback provider support.
 - **[Ethers.js v6](examples/ethers/README.md):** Standard JsonRpcProvider with static network configuration to save roundtrips.
-- **[Python Web3.py](examples/python-web3/README.md):** Trading bot client with persistent HTTP connection pooling.
+- **[Python Web3.py](examples/python-web3/README.md):** Trading bot client with persistent HTTP connection pooling and PoA middleware.
 - **[WebSocket Subscriptions](examples/websocket/README.md):** Real-time newHeads and logs streaming with auto-reconnect logic.
-- **[Batch JSON-RPC](examples/batch-rpc/README.md):** How to bundle 10–50 calls into single HTTP roundtrips.
+- **[Concurrent JSON-RPC](examples/batch-rpc/README.md):** How to dispatch parallel calls taking advantage of 300 RPS burst headroom.
 
 ---
 
@@ -44,7 +44,7 @@ npx blazingnode-bench --target "https://your-provider-rpc-url.com/YOUR_KEY"
 
 1. **P95 Tail Latency:** Concurrency pools of 10 and 20 parallel calls.
 2. **Block Head Freshness:** Detects stale block reads against the canonical Polygon head.
-3. **Burst Stress Test:** Ramps from 25 RPS to 100+ RPS to reveal artificial HTTP 429 throttling.
+3. **Burst Stress Test:** Ramps up to 300 RPS burst headroom to reveal artificial HTTP 429 throttling.
 
 Full benchmark source code: [BlazingNode-rpc/benchmark-cli](https://github.com/BlazingNode-rpc/benchmark-cli).
 
