@@ -6,11 +6,11 @@
 ### Q: What is the difference between average latency and P95 tail latency?
 **A:** Average latency (mean) looks deceptively low because simple, cached queries bring down the math. However, during high-volatility events, trading bots fire concurrent bundles of state reads. **P95 latency** measures the slowest 5% of your requests—which is when your bot is most vulnerable to timeouts. BlazingNode maintains flat, predictable P95 latencies even under 20+ parallel requests.
 
-### Q: Does BlazingNode carry full historical archive state? How many blocks are kept live?
-**A:** No, BlazingNode is engineered as an ultra-fast, high-throughput execution node for live trading, bots, indexing, and recent data verification—it is not an archive node. 
-- **Live Block & Execution History:** We keep **100,000 blocks (~2.25 days)** of live blocks, transactions, logs, and state available for immediate execution and block traces (`debug_traceBlockByNumber`, `trace_block`, etc.) with zero missing-trie errors.
-- **Historical Block & Receipt Data (`eth_getBlockByNumber`, `eth_getTransactionReceipt`):** Accessible across full recent weeks and months on high-speed disk.
-- **Deep Historical Trie State (>2.25 days):** If your workload requires running `eth_call` or storage inspections against historical contract state from weeks or months in the past, an archive node is required.
+### Q: Does BlazingNode carry full historical archive state?
+**A:** BlazingNode is engineered as an ultra-fast, high-throughput execution node for live trading, bots, indexing, and high-frequency transactions.
+- **Trace & Debug Methods:** Full historical traces and debug calls (`debug_traceTransaction`, `debug_traceBlockByNumber`, `trace_block`, `trace_transaction`) are fully supported across the entire historical Polygon chain.
+- **Block & Receipt History:** Full block headers, transaction receipts, and log records (`eth_getBlockByNumber`, `eth_getTransactionReceipt`, `eth_getLogs`) are retained across recent weeks and months on high-speed disk.
+- **Historical State Queries:** For state execution methods (`eth_call`, `eth_getBalance`, `eth_getStorageAt`) targeting contract states from months or years in the past, an archive node is required. Live state execution is optimized for real-time and recent blocks.
 
 ### Q: How do Trace and Debug methods work? Do they burn through my monthly budget?
 **A:** You can purchase **Trace Call Bundles** that **never expire**—they simply deplete with actual usage. This ensures a 100% predictable cost structure with no surprise overages or hidden multipliers. 
